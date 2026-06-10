@@ -31,52 +31,23 @@
             --radius-lg: 14px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.5;
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-            -webkit-text-size-adjust: 100%;
-        }
+        body { background: var(--bg-primary); color: var(--text-primary); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.5; min-height: 100vh; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; }
         .app { display: flex; min-height: 100vh; }
-        .sidebar {
-            width: 240px; background: var(--bg-secondary); border-right: 1px solid var(--border);
-            padding: 20px 16px; position: sticky; top: 0; height: 100vh; overflow-y: auto; z-index: 998;
-        }
+        .sidebar { width: 240px; background: var(--bg-secondary); border-right: 1px solid var(--border); padding: 20px 16px; position: sticky; top: 0; height: 100vh; overflow-y: auto; z-index: 998; }
         .sidebar-logo { font-size: 1.25rem; font-weight: 700; margin-bottom: 24px; color: var(--accent); }
         .nav-section { margin-bottom: 18px; }
         .nav-section-title { font-size: 0.65rem; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 6px; padding: 0 8px; font-weight: 600; letter-spacing: 0.05em; }
-        .nav-item {
-            display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: var(--radius-sm);
-            cursor: pointer; color: var(--text-secondary); font-size: 0.85rem;
-            margin-bottom: 1px; border: none; background: none; width: 100%; text-align: left; font-family: inherit;
-        }
+        .nav-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: var(--radius-sm); cursor: pointer; color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1px; border: none; background: none; width: 100%; text-align: left; font-family: inherit; }
         .nav-item:hover { background: var(--bg-tertiary); }
         .nav-item.active { background: rgba(124, 58, 237, 0.12); color: var(--accent); font-weight: 600; }
         .main-content { flex: 1; padding: 20px 24px; overflow-y: auto; max-height: 100vh; }
         .page-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 14px; }
-        
-        /* TODAY SECTION */
-        .today-section {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 16px;
-            margin-bottom: 16px;
-        }
+        .today-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px; margin-bottom: 16px; }
         .today-section h3 { font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; color: var(--accent); }
         .today-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; }
-        .today-item {
-            display: flex; align-items: center; gap: 8px;
-            padding: 8px 10px; border-radius: var(--radius-sm); font-size: 0.75rem;
-            background: var(--bg-tertiary); cursor: pointer;
-        }
+        .today-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: var(--radius-sm); font-size: 0.75rem; background: var(--bg-tertiary); cursor: pointer; }
         .today-item.overdue { background: var(--red-soft); border: 1px solid rgba(239,68,68,0.3); }
         .today-item.today { background: var(--orange-soft); border: 1px solid rgba(245,158,11,0.3); }
-        .today-item.upcoming { background: var(--bg-tertiary); }
-        
         .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-bottom: 16px; }
         .stat-mini { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 14px; }
         .stat-mini-label { font-size: 0.6rem; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 2px; font-weight: 600; letter-spacing: 0.04em; }
@@ -86,8 +57,8 @@
         .card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 14px; position: relative; cursor: pointer; transition: all 0.2s; }
         .card:hover { border-color: rgba(255,255,255,0.15); }
         .card.overdue-card { border-color: rgba(239,68,68,0.4); background: rgba(239,68,68,0.05); }
-        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 6px; }
-        .card-project-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; flex-wrap: wrap; gap: 6px; }
+        .card-project-title { font-weight: 700; font-size: 0.95rem; }
         .card-client-name { font-weight: 500; font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 8px; }
         .badge { font-size: 0.55rem; text-transform: uppercase; padding: 2px 6px; border-radius: 8px; font-weight: 600; white-space: nowrap; }
         .badge-purple { background: rgba(124, 58, 237, 0.12); color: #a78bfa; }
@@ -122,12 +93,9 @@
         .btn-xs { padding: 2px 6px; font-size: 0.6rem; }
         .flex-between { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
         .text-muted { color: var(--text-tertiary); font-size: 0.72rem; }
-        .text-danger { color: var(--red); }
-        .text-warning { color: var(--orange); }
         .mt-2 { margin-top: 8px; }
         .mb-3 { margin-bottom: 12px; }
         .hidden { display: none !important; }
-        .quick-add-client { background: var(--bg-tertiary); border: 1px dashed var(--border); border-radius: var(--radius-md); padding: 10px; margin-top: 4px; }
         .select-with-add { display: flex; gap: 4px; align-items: flex-end; }
         .select-with-add select { flex: 1; }
         .finance-section { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px; margin-top: 6px; }
@@ -159,7 +127,6 @@
         .gear-checklist { display: flex; flex-direction: column; gap: 3px; margin-top: 4px; }
         .gear-item { display: flex; align-items: center; gap: 6px; font-size: 0.65rem; color: var(--text-secondary); }
         .gear-item input[type="checkbox"] { accent-color: var(--green); width: 12px; height: 12px; }
-        .inline-badge { display: inline; }
         @media (max-width: 768px) {
             .sidebar { display: none; position: fixed; left: 0; top: 0; width: 250px; z-index: 998; }
             .sidebar.open { display: flex; }
@@ -205,8 +172,8 @@
             <div class="form-row"><div class="form-group"><label>Vardas, Pavardė *</label><input type="text" id="klVardas" required></div><div class="form-group"><label>Įmonė</label><input type="text" id="klImone"></div></div>
             <div class="form-row"><div class="form-group"><label>Telefonas</label><input type="tel" id="klTel"></div><div class="form-group"><label>El. paštas</label><input type="email" id="klEmail"></div></div>
             <div class="form-row"><div class="form-group"><label>PVM kodas</label><input type="text" id="klPvmKodas"></div><div class="form-group"><label>Adresas</label><input type="text" id="klAdresas"></div></div>
-            <div class="form-row"><div class="form-group"><label>Kaip rado</label><input type="text" id="klKaipRado" placeholder="Rekomendacija, Google, Soc. tinklai..."></div><div class="form-group"><label>Komunikacijos kanalas</label><select id="klKanalas"><option value="email">El. paštas</option><option value="whatsapp">WhatsApp</option><option value="telefonas">Telefonas</option><option value="messenger">Messenger</option></select></div></div>
-            <div class="form-group"><label>Pastabos apie klientą</label><textarea id="klPastabos" rows="2" placeholder="Mokėjimo sąlygos, ypatumai..."></textarea></div>
+            <div class="form-row"><div class="form-group"><label>Kaip rado</label><input type="text" id="klKaipRado" placeholder="Rekomendacija, Google..."></div><div class="form-group"><label>Komunikacija</label><select id="klKanalas"><option value="email">El. paštas</option><option value="whatsapp">WhatsApp</option><option value="telefonas">Telefonas</option></select></div></div>
+            <div class="form-group"><label>Pastabos apie klientą</label><textarea id="klPastabos" rows="2"></textarea></div>
             <div class="modal-actions">
                 <button type="button" class="btn btn-danger btn-sm" id="btnTrintiKlientą" style="display:none;margin-right:auto;" onclick="trintiKlientą()">Ištrinti</button>
                 <button type="button" class="btn" onclick="uždarytiModalą('modalKlientas')">Atšaukti</button>
@@ -221,7 +188,7 @@
         <h2 id="modalProjektasTitle">Naujas projektas</h2>
         <form id="formaProjektas" onsubmit="return išsaugotiProjektą(event)">
             <input type="hidden" id="projId">
-            <div class="form-group"><label>Klientas *</label><div class="select-with-add"><select id="projKlientas" required><option value="">-- Pasirinkite --</option></select><button type="button" class="btn btn-xs" onclick="atidarytiKlientoModalą()">+ Naujas klientas</button></div></div>
+            <div class="form-group"><label>Klientas *</label><div class="select-with-add"><select id="projKlientas" required><option value="">-- Pasirinkite --</option></select><button type="button" class="btn btn-xs" onclick="atidarytiKlientoModalą()">+ Naujas</button></div></div>
             <div class="form-row"><div class="form-group"><label>Projekto pavadinimas *</label><input type="text" id="projPavadinimas" required></div><div class="form-group"><label>Tipas *</label><select id="projTipas" required><option value="Reklama">Reklama</option><option value="Vestuvės">Vestuvės</option><option value="Podcast">Podcast</option><option value="Motion Design">Motion Design</option><option value="Kita">Kita</option></select></div></div>
             <div class="form-row"><div class="form-group"><label>Prioritetas</label><select id="projPrioritetas"><option value="normalus">Normalus</option><option value="svarbus">Svarbus</option><option value="skubus">Skubus</option></select></div><div class="form-group"><label>Terminas *</label><input type="date" id="projTerminas" required></div></div>
             <div class="form-row"><div class="form-group"><label>Filmavimo data</label><input type="date" id="projFilmData"></div><div class="form-group"><label>Lokacija</label><input type="text" id="projLokacija"></div></div>
@@ -233,17 +200,17 @@
                     <label class="gear-item"><input type="checkbox" class="gear-cb" value="Apšvietimo komplektas"> Apšvietimo komplektas</label>
                     <label class="gear-item"><input type="checkbox" class="gear-cb" value="Belaidžiai mikrofonai"> Belaidžiai mikrofonai</label>
                     <label class="gear-item"><input type="checkbox" class="gear-cb" value="Dronas DJI Mavic"> Dronas DJI Mavic</label>
-                    <label class="gear-item"><input type="checkbox" class="gear-cb" value="Monitorius / Atvaizdavimas"> Monitorius / Atvaizdavimas</label>
+                    <label class="gear-item"><input type="checkbox" class="gear-cb" value="Monitorius"> Monitorius</label>
                 </div>
                 <input type="text" id="projIrangaKita" placeholder="Kita įranga..." style="margin-top:4px;">
             </div>
-            <div class="form-group"><label>Pastabos / Log</label><textarea id="projPastabos" rows="2" placeholder="Svarbi info, kliento pageidavimai, kas įvyko..."></textarea></div>
+            <div class="form-group"><label>Pastabos / Log</label><textarea id="projPastabos" rows="2" placeholder="Svarbi info, kliento pageidavimai..."></textarea></div>
             <div class="finance-section">
                 <h4>Finansai</h4>
                 <div class="form-group"><label class="toggle-switch"><input type="checkbox" id="projNeapmokamas" onchange="perjungtiFinansųLaukelius()"><span class="toggle-track"></span><span style="font-size:0.7rem;">Neapmokamas / Portfolio</span></label></div>
                 <div id="finansiniaiLaukeliai">
                     <div class="form-row-3"><div class="form-group"><label>Biudžetas (€)</label><input type="number" id="projBiudzetas" step="0.01" value="0" onchange="validuotiFinansus()"></div><div class="form-group"><label>Avansas (€)</label><input type="number" id="projAvansas" step="0.01" value="0" onchange="validuotiFinansus()"></div><div class="form-group"><label>Galutinis (€)</label><input type="number" id="projGalutinis" step="0.01" value="0" onchange="validuotiFinansus()"></div></div>
-                    <div class="form-row"><div class="form-group"><label>Išlaidos (€)</label><input type="number" id="projIslaidos" step="0.01" value="0"></div><div class="form-group"><label style="color:#f59e0b;">Pelnas: <span id="pelnoSkaičiavimas">€0.00</span></label></div></div>
+                    <div class="form-row"><div class="form-group"><label>Išlaidos (€)</label><input type="number" id="projIslaidos" step="0.01" value="0" onchange="validuotiFinansus()"></div><div class="form-group"><label style="color:#f59e0b;">Pelnas: <span id="pelnoSkaičiavimas">€0.00</span></label></div></div>
                     <div id="finansuIspėjimas" style="font-size:0.6rem;color:var(--red);display:none;margin-top:2px;">⚠️ Avansas + Galutinis ≠ Biudžetas</div>
                     <div class="payment-checks">
                         <label class="payment-check"><input type="checkbox" id="projAvansasGautas" onchange="greitasApmokėjimoAtnaujinimas()"> Avansas gautas</label>
@@ -274,10 +241,8 @@ var ETAPAI = ['Idėja', 'Pasiruošimas', 'Nufilmuota', 'Rough Cut', 'Korekcijos'
 async function užkrautiDuomenis() {
     try {
         var kData = await supabase.from('klientai').select('*').order('vardas');
-        if (kData.error) throw kData.error;
         klientai = kData.data || [];
         var pData = await supabase.from('projektai').select('*');
-        if (pData.error) throw pData.error;
         projektai = pData.data || [];
         atvaizduotiPuslapį();
     } catch (e) { atvaizduotiPuslapį(); }
@@ -299,11 +264,11 @@ function validuotiFinansus() {
     var b = parseFloat(document.getElementById('projBiudzetas').value) || 0;
     var a = parseFloat(document.getElementById('projAvansas').value) || 0;
     var g = parseFloat(document.getElementById('projGalutinis').value) || 0;
+    var isl = parseFloat(document.getElementById('projIslaidos').value) || 0;
     var isp = document.getElementById('finansuIspėjimas');
     if (isp) isp.style.display = (a + g !== b && b > 0) ? 'block' : 'none';
-    var pelnas = b - (parseFloat(document.getElementById('projIslaidos').value) || 0);
     var pelnoEl = document.getElementById('pelnoSkaičiavimas');
-    if (pelnoEl) pelnoEl.textContent = '€' + pelnas.toFixed(2);
+    if (pelnoEl) pelnoEl.textContent = '€' + (b - isl).toFixed(2);
 }
 
 function skaičiuotiLikutį(p) {
@@ -340,43 +305,26 @@ function formatuotiDatą(d) {
 
 function arPradelstas(terminas) {
     if (!terminas) return false;
-    var siandien = new Date();
-    siandien.setHours(0,0,0,0);
+    var siandien = new Date(); siandien.setHours(0,0,0,0);
     return new Date(terminas) < siandien;
 }
 
 function arSiandien(data) {
     if (!data) return false;
-    var siandien = new Date();
-    siandien.setHours(0,0,0,0);
-    var d = new Date(data);
-    d.setHours(0,0,0,0);
+    var siandien = new Date(); siandien.setHours(0,0,0,0);
+    var d = new Date(data); d.setHours(0,0,0,0);
     return d.getTime() === siandien.getTime();
-}
-
-function arArtimiausiuMetu(data, dienos) {
-    if (!data) return false;
-    var siandien = new Date();
-    siandien.setHours(0,0,0,0);
-    var d = new Date(data);
-    d.setHours(0,0,0,0);
-    var skirtumas = (d - siandien) / (1000*60*60*24);
-    return skirtumas > 0 && skirtumas <= dienos;
 }
 
 function genDashboard() {
     var aktyvus = projektai.filter(function(p) { return p.statusas !== 'Atlikta' && p.statusas !== 'Archyvuotas'; });
     var laukiantysPinigai = aktyvus.reduce(function(sum, p) { return sum + skaičiuotiLikutį(p); }, 0);
-    
-    // ŠIANDIEN SEKCIJA
     var siandienFilmavimai = aktyvus.filter(function(p) { return arSiandien(p.film_data); });
     var siandienTerminai = aktyvus.filter(function(p) { return arSiandien(p.terminas); });
     var pradelsti = aktyvus.filter(function(p) { return arPradelstas(p.terminas); });
-    var artimiausios3Dienos = aktyvus.filter(function(p) { return arArtimiausiuMetu(p.terminas, 3); });
     
     var h = '<h1 class="page-title">Panelė</h1>';
     
-    // TODAY SECTION
     if (siandienFilmavimai.length > 0 || siandienTerminai.length > 0 || pradelsti.length > 0) {
         h += '<div class="today-section"><h3>📋 Šiandien</h3><div class="today-grid">';
         for (var s = 0; s < siandienFilmavimai.length; s++) {
@@ -386,12 +334,17 @@ function genDashboard() {
             h += '<div class="today-item today" onclick="atidarytiProjektoModalą(\'' + siandienTerminai[st].id + '\')">⏰ Terminas: ' + siandienTerminai[st].pavadinimas + '</div>';
         }
         for (var sp = 0; sp < pradelsti.length; sp++) {
-            h += '<div class="today-item overdue" onclick="atidarytiProjektoModalą(\'' + pradelsti[sp].id + '\')">⚠️ PRADELSTA: ' + pradelsti[sp].pavadinimas + ' (' + formatuotiDatą(pradelsti[sp].terminas) + ')</div>';
+            h += '<div class="today-item overdue" onclick="atidarytiProjektoModalą(\'' + pradelsti[sp].id + '\')">⚠️ PRADELSTA: ' + pradelsti[sp].pavadinimas + '</div>';
         }
         h += '</div></div>';
     }
     
-    h += '<div class="stats-row"><div class="stat-mini"><div class="stat-mini-label">Aktyvūs</div><div class="stat-mini-value">'+aktyvus.length+'</div></div><div class="stat-mini"><div class="stat-mini-label">Klientai</div><div class="stat-mini-value">'+klientai.length+'</div></div><div class="stat-mini"><div class="stat-mini-label">Laukiantys €</div><div class="stat-mini-value" style="color:#f59e0b">€'+laukiantysPinigai.toFixed(0)+'</div></div><div class="stat-mini"><div class="stat-mini-label">Pradelsta</div><div class="stat-mini-value" style="color:#ef4444">'+pradelsti.length+'</div></div></div>';
+    h += '<div class="stats-row">';
+    h += '<div class="stat-mini"><div class="stat-mini-label">Aktyvūs</div><div class="stat-mini-value">'+aktyvus.length+'</div></div>';
+    h += '<div class="stat-mini"><div class="stat-mini-label">Klientai</div><div class="stat-mini-value">'+klientai.length+'</div></div>';
+    h += '<div class="stat-mini"><div class="stat-mini-label">Laukiantys €</div><div class="stat-mini-value" style="color:#f59e0b">€'+laukiantysPinigai.toFixed(0)+'</div></div>';
+    h += '<div class="stat-mini"><div class="stat-mini-label">Pradelsta</div><div class="stat-mini-value" style="color:#ef4444">'+pradelsti.length+'</div></div>';
+    h += '</div>';
     h += '<button class="btn btn-primary btn-sm" onclick="atidarytiProjektoModalą()" style="margin-bottom:10px;">+ Naujas projektas</button>';
     h += '<div class="cards-grid">';
     
@@ -401,34 +354,28 @@ function genDashboard() {
         for (var j = 0; j < klientai.length; j++) { if (klientai[j].id == p.klientas_id) { kl = klientai[j]; break; } }
         var likutis = skaičiuotiLikutį(p);
         var etapasIdx = parseInt(p.etapas) || 0;
-        if (etapasIdx < 0) etapasIdx = 0;
-        if (etapasIdx > 6) etapasIdx = 6;
+        if (etapasIdx < 0) etapasIdx = 0; if (etapasIdx > 6) etapasIdx = 6;
         var etapasPav = ETAPAI[etapasIdx];
         var progresas = Math.round((etapasIdx / 6) * 100);
         var pradelstas = arPradelstas(p.terminas);
         
-        var priorDot = '';
-        if (p.prioritetas === 'skubus') priorDot = '<span class="priority-dot priority-high"></span>';
-        else if (p.prioritetas === 'svarbus') priorDot = '<span class="priority-dot priority-medium"></span>';
-        
         var irangosHTML = '';
         if (p.iranga) {
-            var irangosDalys = p.iranga.split('|');
+            var dalys = p.iranga.split('|');
             irangosHTML = '<div class="gear-checklist">';
-            for (var g = 0; g < irangosDalys.length; g++) {
-                if (irangosDalys[g].trim()) {
-                    irangosHTML += '<label class="gear-item"><input type="checkbox"> ' + irangosDalys[g].trim() + '</label>';
-                }
+            for (var g = 0; g < dalys.length; g++) {
+                if (dalys[g].trim()) irangosHTML += '<label class="gear-item"><input type="checkbox"> ' + dalys[g].trim() + '</label>';
             }
             irangosHTML += '</div>';
         }
         
         h += '<div class="card ' + (pradelstas ? 'overdue-card' : '') + '" onclick="atidarytiProjektoModalą(\'' + p.id + '\')">';
         h += '<div class="card-header">';
-        h += '<div style="display:flex;align-items:center;gap:4px;">' + priorDot + '<div class="card-project-title">' + p.pavadinimas + '</div></div>';
+        h += '<div class="card-project-title">' + p.pavadinimas + '</div>';
         h += '<div style="display:flex;gap:3px;flex-wrap:wrap;">';
         if (pradelstas) h += '<span class="badge badge-red">PRADELSTA</span>';
         if (p.prioritetas === 'skubus') h += '<span class="badge badge-red">Skubu</span>';
+        else if (p.prioritetas === 'svarbus') h += '<span class="badge badge-orange">Svarbu</span>';
         h += '<span class="badge badge-purple">' + p.tipas + '</span>';
         h += '<span class="badge badge-blue">' + etapasPav + '</span>';
         if (p.neapmokamas) h += '<span class="badge badge-pink">Portfolio</span>';
@@ -436,16 +383,12 @@ function genDashboard() {
         h += '</div></div>';
         h += '<div class="card-client-name">' + (kl?kl.vardas:'?') + (kl&&kl.imone?' · '+kl.imone:'') + '</div>';
         h += '<div class="card-meta">';
-        h += '<div class="card-meta-row"><span class="card-meta-label">🎥</span><span>' + formatuotiDatą(p.film_data) + '</span></div>';
-        h += '<div class="card-meta-row"><span class="card-meta-label">⏰</span><span style="' + (pradelstas?'color:#ef4444;font-weight:600;':'') + '">' + formatuotiDatą(p.terminas) + (pradelstas?' ⚠️':'') + '</span></div>';
+        h += '<div class="card-meta-row"><span class="card-meta-label">🎥 Filmavimas</span><span>' + formatuotiDatą(p.film_data) + '</span></div>';
+        h += '<div class="card-meta-row"><span class="card-meta-label">⏰ Terminas</span><span style="' + (pradelstas?'color:#ef4444;font-weight:600;':'') + '">' + formatuotiDatą(p.terminas) + (pradelstas?' ⚠️':'') + '</span></div>';
         if (!p.neapmokamas) {
-            h += '<div class="card-meta-row"><span class="card-meta-label">💰</span><span style="font-size:0.65rem;">';
-            h += (p.avansas_gautas ? '<span style="color:#10b981;">✓ Avansas</span> ' : '<span style="color:#f59e0b;">○ Avansas</span> ');
-            h += (p.galutinis_gautas ? '<span style="color:#10b981;">✓ Galutinis</span>' : '<span style="color:#f59e0b;">○ Galutinis</span>');
-            h += '</span></div>';
-            h += '<div class="card-meta-row"><span class="card-meta-label">Likutis</span><span style="color:' + (likutis > 0 ? '#f59e0b' : '#10b981') + ';font-weight:600;">€' + likutis.toFixed(2) + '</span></div>';
+            h += '<div class="card-meta-row"><span class="card-meta-label">💰 Likutis</span><span style="color:' + (likutis > 0 ? '#f59e0b' : '#10b981') + ';font-weight:600;">€' + likutis.toFixed(2) + '</span></div>';
         }
-        if (p.pastabos) h += '<div class="card-meta-row"><span class="card-meta-label">📝</span><span style="font-size:0.65rem;color:var(--text-tertiary);">' + p.pastabos.substring(0,60) + (p.pastabos.length>60?'...':'') + '</span></div>';
+        if (p.pastabos) h += '<div class="card-meta-row"><span class="card-meta-label">📝</span><span style="font-size:0.65rem;color:var(--text-tertiary);">' + p.pastabos.substring(0,50) + '</span></div>';
         h += irangosHTML;
         h += '</div>';
         h += '<div class="progress-bar"><div class="progress-fill" style="width:' + progresas + '%;"></div></div>';
@@ -480,9 +423,9 @@ function genProjektai() {
         for (var j = 0; j < klientai.length; j++) { if (klientai[j].id == p.klientas_id) { kl = klientai[j]; break; } }
         var l = skaičiuotiLikutį(p);
         var etapasIdx = parseInt(p.etapas) || 0;
-        if (etapasIdx < 0) etapasIdx = 0;
-        if (etapasIdx > 6) etapasIdx = 6;
-        h += '<tr style="' + (arPradelstas(p.terminas)?'background:rgba(239,68,68,0.08);':'') + '"><td>' + p.pavadinimas + '</td><td>' + (kl?kl.vardas:'?') + '</td><td>' + ETAPAI[etapasIdx] + '</td><td style="' + (arPradelstas(p.terminas)?'color:#ef4444;font-weight:600;':'') + '">' + formatuotiDatą(p.terminas) + (arPradelstas(p.terminas)?' ⚠️':'') + '</td><td style="color:' + (l>0?'#f59e0b':'#10b981') + '">€' + l.toFixed(2) + '</td><td><button class="btn btn-sm" onclick="atidarytiProjektoModalą(\'' + p.id + '\')">Red.</button> <button class="btn btn-sm" style="color:var(--red);border-color:var(--red)" onclick="trintiProjektąPagalId(\'' + p.id + '\')">Trinti</button></td></tr>';
+        if (etapasIdx < 0) etapasIdx = 0; if (etapasIdx > 6) etapasIdx = 6;
+        var pradelstas = arPradelstas(p.terminas);
+        h += '<tr style="' + (pradelstas?'background:rgba(239,68,68,0.08);':'') + '"><td>' + p.pavadinimas + '</td><td>' + (kl?kl.vardas:'?') + '</td><td>' + ETAPAI[etapasIdx] + '</td><td style="' + (pradelstas?'color:#ef4444;font-weight:600;':'') + '">' + formatuotiDatą(p.terminas) + (pradelstas?' ⚠️':'') + '</td><td style="color:' + (l>0?'#f59e0b':'#10b981') + '">€' + l.toFixed(2) + '</td><td><button class="btn btn-sm" onclick="atidarytiProjektoModalą(\'' + p.id + '\')">Red.</button> <button class="btn btn-sm" style="color:var(--red);border-color:var(--red)" onclick="trintiProjektąPagalId(\'' + p.id + '\')">Trinti</button></td></tr>';
     }
     h += '</tbody></table></div>';
     return h;
@@ -496,7 +439,13 @@ function genFinansai() {
     var islaidosViso = mokami.reduce(function(s,p){return s+(p.islaidos||0);},0);
     var pelnasViso = bB - islaidosViso;
     var laukiaViso = bB - gautaViso;
-    h += '<div class="stats-row"><div class="stat-mini"><div class="stat-mini-label">Biudžetas</div><div class="stat-mini-value">€'+bB.toFixed(0)+'</div></div><div class="stat-mini"><div class="stat-mini-label">Gauta</div><div class="stat-mini-value" style="color:#10b981">€'+gautaViso.toFixed(0)+'</div></div><div class="stat-mini"><div class="stat-mini-label">Laukia</div><div class="stat-mini-value" style="color:#f59e0b">€'+laukiaViso.toFixed(0)+'</div></div><div class="stat-mini"><div class="stat-mini-label">Išlaidos</div><div class="stat-mini-value">€'+islaidosViso.toFixed(0)+'</div></div><div class="stat-mini"><div class="stat-mini-label">Pelnas</div><div class="stat-mini-value" style="color:'+(pelnasViso>=0?'#10b981':'#ef4444')+'">€'+pelnasViso.toFixed(0)+'</div></div></div>';
+    h += '<div class="stats-row">';
+    h += '<div class="stat-mini"><div class="stat-mini-label">Biudžetas</div><div class="stat-mini-value">€'+bB.toFixed(0)+'</div></div>';
+    h += '<div class="stat-mini"><div class="stat-mini-label">Gauta</div><div class="stat-mini-value" style="color:#10b981">€'+gautaViso.toFixed(0)+'</div></div>';
+    h += '<div class="stat-mini"><div class="stat-mini-label">Laukia</div><div class="stat-mini-value" style="color:#f59e0b">€'+laukiaViso.toFixed(0)+'</div></div>';
+    h += '<div class="stat-mini"><div class="stat-mini-label">Išlaidos</div><div class="stat-mini-value">€'+islaidosViso.toFixed(0)+'</div></div>';
+    h += '<div class="stat-mini"><div class="stat-mini-label">Pelnas</div><div class="stat-mini-value" style="color:'+(pelnasViso>=0?'#10b981':'#ef4444')+'">€'+pelnasViso.toFixed(0)+'</div></div>';
+    h += '</div>';
     if (mokami.length === 0) return h + '<p class="text-muted">Nėra mokamų projektų.</p>';
     h += '<div class="table-wrapper"><table class="data-table"><thead><tr><th>Projektas</th><th>Biudž.</th><th>Gauta</th><th>Išlaidos</th><th>Pelnas</th><th>Likutis</th></tr></thead><tbody>';
     for (var i = 0; i < mokami.length; i++) {
@@ -519,7 +468,8 @@ function genKalendorius() {
     var men = ['Sausis','Vasaris','Kovas','Balandis','Gegužė','Birželis','Liepa','Rugpjūtis','Rugsėjis','Spalis','Lapkritis','Gruodis'];
     var h = '<div class="flex-between mb-3"><h1 class="page-title">Kalendorius</h1><div style="display:flex;gap:4px;"><button class="btn btn-sm" onclick="keistiKalendorių(-1)">←</button><span style="font-weight:600;font-size:0.9rem;">'+men[mn]+' '+m+'</span><button class="btn btn-sm" onclick="keistiKalendorių(1)">→</button><button class="btn btn-sm" onclick="kalendoriausData=new Date();atvaizduotiPuslapį();">Šiandien</button></div></div>';
     h += '<div class="calendar-month">';
-    for (var i=0;i<7;i++) h+='<div class="calendar-day-header">'+['Pir','Ant','Tre','Ket','Pen','Šeš','Sek'][i]+'</div>';
+    var dienos = ['Pir','Ant','Tre','Ket','Pen','Šeš','Sek'];
+    for (var i=0;i<7;i++) h+='<div class="calendar-day-header">'+dienos[i]+'</div>';
     var pr = new Date(m,mn,1).getDay(); if(pr===0)pr=6;else pr=pr-1;
     for(var i=0;i<pr;i++) h+='<div class="calendar-day other-month"></div>';
     var siandien = new Date();
@@ -536,11 +486,12 @@ function genKalendorius() {
     h+='</div>';
     return h;
 }
+
 function keistiKalendorių(d){kalendoriausData.setMonth(kalendoriausData.getMonth()+d);atvaizduotiPuslapį();}
 function perjungtiMobilųMeniu(){var s=document.getElementById('sidebar');if(s.classList.contains('open'))s.classList.remove('open');else s.classList.add('open');}
 function uždarytiMobilųMeniu(){document.getElementById('sidebar').classList.remove('open');}
 
-// CRUD
+// ==================== CRUD ====================
 async function išsaugotiKlientą(e){
     e.preventDefault();
     var id = document.getElementById('klientoId').value;
@@ -554,10 +505,7 @@ async function išsaugotiKlientą(e){
 
 async function trintiKlientąPagalId(id) {
     var kp = projektai.filter(function(p) { return p.klientas_id == id; });
-    if (kp.length > 0) {
-        alert('Šis klientas turi ' + kp.length + ' projektą(us). Ištrinti negalima kol yra priskirtų projektų.');
-        return;
-    }
+    if (kp.length > 0) { alert('Šis klientas turi ' + kp.length + ' projektą(us). Ištrinti negalima.'); return; }
     if (!confirm('Ar tikrai ištrinti šį klientą?')) return;
     await supabase.from('klientai').delete().eq('id', id);
     await užkrautiDuomenis();
@@ -572,20 +520,19 @@ async function išsaugotiProjektą(e){
     var etapas = parseInt(document.getElementById('projEtapas').value) || 0;
     var statusas = etapas >= 6 ? 'Atlikta' : 'Aktyvus';
     
-    var irangosCheckboxai = document.querySelectorAll('.gear-cb:checked');
-    var pasirinktaIranga = [];
-    for (var ic = 0; ic < irangosCheckboxai.length; ic++) pasirinktaIranga.push(irangosCheckboxai[ic].value);
-    var kitaIranga = document.getElementById('projIrangaKita').value.trim();
-    if (kitaIranga) pasirinktaIranga.push(kitaIranga);
+    var cbs = document.querySelectorAll('.gear-cb:checked');
+    var iranga = [];
+    for (var ic = 0; ic < cbs.length; ic++) iranga.push(cbs[ic].value);
+    var kita = document.getElementById('projIrangaKita').value.trim();
+    if (kita) iranga.push(kita);
     
     var duom = {
         klientas_id: klId, pavadinimas: document.getElementById('projPavadinimas').value,
         tipas: document.getElementById('projTipas').value, prioritetas: document.getElementById('projPrioritetas').value,
         film_data: document.getElementById('projFilmData').value || null, terminas: document.getElementById('projTerminas').value,
-        lokacija: document.getElementById('projLokacija').value, iranga: pasirinktaIranga.join('|'),
+        lokacija: document.getElementById('projLokacija').value, iranga: iranga.join('|'),
         statusas: statusas, etapas: etapas, failu_nuoroda: document.getElementById('projFailuNuoroda').value,
-        pastabos: document.getElementById('projPastabos').value,
-        neapmokamas: neapm,
+        pastabos: document.getElementById('projPastabos').value, neapmokamas: neapm,
         biudzetas: neapm ? 0 : (parseFloat(document.getElementById('projBiudzetas').value) || 0),
         avansas: neapm ? 0 : (parseFloat(document.getElementById('projAvansas').value) || 0),
         galutinis: neapm ? 0 : (parseFloat(document.getElementById('projGalutinis').value) || 0),
@@ -631,7 +578,6 @@ function atidarytiKlientoModalą(id){
     }else{document.getElementById('formaKlientas').reset();btn.style.display='none';}
     document.getElementById('modalKlientas').classList.remove('hidden');
 }
-
 function trintiKlientą(){var id=document.getElementById('klientoId').value;if(id){trintiKlientąPagalId(id);uždarytiModalą('modalKlientas');}}
 
 function atidarytiProjektoModalą(id){
@@ -660,7 +606,7 @@ function atidarytiProjektoModalą(id){
             document.getElementById('projIslaidos').value=p.islaidos||0;
             document.getElementById('projAvansasGautas').checked=p.avansas_gautas||false;
             document.getElementById('projGalutinisGautas').checked=p.galutinis_gautas||false;
-            if(p.iranga){var irangosDalys=p.iranga.split('|');for(var idl=0;idl<irangosDalys.length;idl++){var dalis=irangosDalys[idl].trim();if(!dalis)continue;var found=false;for(var cb=0;cb<cbs.length;cb++){if(cbs[cb].value===dalis){cbs[cb].checked=true;found=true;break;}}if(!found)document.getElementById('projIrangaKita').value+=(document.getElementById('projIrangaKita').value?', ':'')+dalis;}}
+            if(p.iranga){var dalys=p.iranga.split('|');for(var idl=0;idl<dalys.length;idl++){var dalis=dalys[idl].trim();if(!dalis)continue;var found=false;for(var cb=0;cb<cbs.length;cb++){if(cbs[cb].value===dalis){cbs[cb].checked=true;found=true;break;}}if(!found)document.getElementById('projIrangaKita').value+=(document.getElementById('projIrangaKita').value?', ':'')+dalis;}}
             break;
         }}
         btn.style.display='inline-block';
@@ -675,7 +621,6 @@ function atidarytiProjektoModalą(id){
     validuotiFinansus();
     document.getElementById('modalProjektas').classList.remove('hidden');
 }
-
 function trintiProjektą(){var id=document.getElementById('projId').value;if(id){trintiProjektąPagalId(id);uždarytiModalą('modalProjektas');}}
 function uždarytiModalą(id){document.getElementById(id).classList.add('hidden');}
 
