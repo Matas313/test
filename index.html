@@ -570,8 +570,7 @@ async function išsaugotiProjektą(e){
     var id = document.getElementById('projId').value;
     var neapm = document.getElementById('projNeapmokamas').checked;
     var etapas = parseInt(document.getElementById('projEtapas').value) || 0;
-    var statusas = etapas >= 6 ? 'Atlikta' : document.getElementById('projStatusas').value;
-    
+    var statusas = etapas >= 6 ? 'Atlikta' : 'Aktyvus';    
     var irangosCheckboxai = document.querySelectorAll('.gear-cb:checked');
     var pasirinktaIranga = [];
     for (var ic = 0; ic < irangosCheckboxai.length; ic++) pasirinktaIranga.push(irangosCheckboxai[ic].value);
