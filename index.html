@@ -38,6 +38,7 @@
             line-height: 1.5;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
         }
         .app { display: flex; min-height: 100vh; }
         .sidebar {
@@ -62,104 +63,113 @@
         }
         .nav-item:active { background: var(--bg-tertiary); }
         .nav-item.active { background: rgba(124, 58, 237, 0.12); color: var(--accent); font-weight: 600; }
-        .main-content { flex: 1; padding: 24px 28px; overflow-y: auto; max-height: 100vh; }
-        .page-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; }
-        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 24px; }
-        .stat-mini { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; }
-        .stat-mini-label { font-size: 0.7rem; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 4px; font-weight: 600; }
-        .stat-mini-value { font-size: 1.5rem; font-weight: 700; }
-        .cards-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-        @media (min-width: 768px) { .cards-grid { grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); } }
-        .card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+        .main-content { flex: 1; padding: 24px 20px; overflow-y: auto; max-height: 100vh; }
+        .page-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-bottom: 20px; }
+        .stat-mini { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 14px; }
+        .stat-mini-label { font-size: 0.6rem; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 2px; font-weight: 600; }
+        .stat-mini-value { font-size: 1.3rem; font-weight: 700; }
+        .cards-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        @media (min-width: 768px) { .cards-grid { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); } }
+        .card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 14px; cursor: pointer; -webkit-tap-highlight-color: transparent; position: relative; }
         .card:active { background: var(--bg-tertiary); }
-        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-        .card-client-name { font-weight: 700; font-size: 0.95rem; }
-        .card-project-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; }
-        .badge { font-size: 0.6rem; text-transform: uppercase; padding: 2px 6px; border-radius: 10px; font-weight: 600; }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 6px; }
+        .card-client-name { font-weight: 700; font-size: 0.9rem; }
+        .card-project-title { font-weight: 600; font-size: 0.85rem; margin-bottom: 6px; }
+        .badge { font-size: 0.55rem; text-transform: uppercase; padding: 2px 5px; border-radius: 8px; font-weight: 600; white-space: nowrap; }
         .badge-purple { background: rgba(124, 58, 237, 0.12); color: #a78bfa; }
         .badge-green { background: var(--green-soft); color: var(--green); }
         .badge-pink { background: var(--pink-soft); color: var(--pink); }
-        .card-meta { display: flex; flex-direction: column; gap: 5px; font-size: 0.8rem; color: var(--text-secondary); }
-        .card-meta-row { display: flex; justify-content: space-between; }
-        .card-meta-label { color: var(--text-tertiary); font-size: 0.7rem; }
-        .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-        .data-table th { text-align: left; padding: 10px 14px; font-size: 0.7rem; text-transform: uppercase; color: var(--text-tertiary); font-weight: 600; border-bottom: 1px solid var(--border); }
-        .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
-        .data-table tr:hover td { background: var(--bg-tertiary); }
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 10px; }
+        .badge-red { background: var(--red-soft); color: var(--red); }
+        .badge-orange { background: var(--orange-soft); color: var(--orange); }
+        .card-meta { display: flex; flex-direction: column; gap: 4px; font-size: 0.75rem; color: var(--text-secondary); }
+        .card-meta-row { display: flex; justify-content: space-between; align-items: center; }
+        .card-meta-label { color: var(--text-tertiary); font-size: 0.65rem; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+        .data-table th { text-align: left; padding: 8px 10px; font-size: 0.65rem; text-transform: uppercase; color: var(--text-tertiary); font-weight: 600; border-bottom: 1px solid var(--border); }
+        .data-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 8px; }
         .modal-overlay.hidden { display: none; }
-        .modal { background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 24px; max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; }
-        .modal h2 { font-size: 1.2rem; margin-bottom: 16px; font-weight: 600; }
-        .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; font-size: 0.65rem; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 4px; font-weight: 600; }
-        .form-group input, .form-group select { width: 100%; padding: 9px 12px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text-primary); font-size: 0.85rem; font-family: inherit; }
-        .form-row { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .modal { background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 18px; max-width: 580px; width: 100%; max-height: 90vh; overflow-y: auto; }
+        .modal h2 { font-size: 1.1rem; margin-bottom: 14px; font-weight: 600; }
+        .form-group { margin-bottom: 10px; }
+        .form-group label { display: block; font-size: 0.6rem; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 3px; font-weight: 600; }
+        .form-group input, .form-group select { width: 100%; padding: 8px 10px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text-primary); font-size: 0.82rem; font-family: inherit; }
+        .form-row { display: grid; grid-template-columns: 1fr; gap: 8px; }
         @media (min-width: 500px) { .form-row { grid-template-columns: 1fr 1fr; } }
-        .modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
-        .btn { padding: 9px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-secondary); cursor: pointer; font-size: 0.85rem; font-family: inherit; -webkit-tap-highlight-color: transparent; }
+        .modal-actions { display: flex; justify-content: flex-end; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+        .btn { padding: 8px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-secondary); cursor: pointer; font-size: 0.8rem; font-family: inherit; -webkit-tap-highlight-color: transparent; }
         .btn-primary { background: var(--accent); border-color: var(--accent); color: white; font-weight: 600; }
         .btn-danger { background: var(--red); border-color: var(--red); color: white; font-weight: 600; }
-        .btn-sm { padding: 5px 10px; font-size: 0.7rem; }
-        .flex-between { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-        .text-muted { color: var(--text-tertiary); font-size: 0.8rem; }
+        .btn-sm { padding: 4px 8px; font-size: 0.65rem; }
+        .flex-between { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
+        .text-muted { color: var(--text-tertiary); font-size: 0.75rem; }
         .mt-2 { margin-top: 8px; }
-        .mb-3 { margin-bottom: 16px; }
+        .mb-3 { margin-bottom: 12px; }
         .hidden { display: none !important; }
-        .status-indicator { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+        .status-indicator { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 3px; }
         .status-indicator.online { background: var(--green); }
         .status-indicator.offline { background: var(--red); }
-        .quick-add-client { background: var(--bg-tertiary); border: 1px dashed var(--border); border-radius: var(--radius-md); padding: 12px; margin-top: 6px; }
-        .select-with-add { display: flex; gap: 6px; align-items: flex-end; }
+        .quick-add-client { background: var(--bg-tertiary); border: 1px dashed var(--border); border-radius: var(--radius-md); padding: 10px; margin-top: 4px; }
+        .select-with-add { display: flex; gap: 4px; align-items: flex-end; }
         .select-with-add select { flex: 1; }
-        .finance-section { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px; margin-top: 6px; }
-        .finance-section h4 { font-size: 0.75rem; font-weight: 600; margin-bottom: 10px; }
-        .toggle-switch { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+        .finance-section { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px; margin-top: 6px; }
+        .finance-section h4 { font-size: 0.7rem; font-weight: 600; margin-bottom: 8px; }
+        .toggle-switch { display: flex; align-items: center; gap: 6px; cursor: pointer; }
         .toggle-switch input { display: none; }
-        .toggle-track { width: 36px; height: 20px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; position: relative; }
-        .toggle-track::after { content: ''; position: absolute; width: 16px; height: 16px; background: var(--text-secondary); border-radius: 50%; top: 1px; left: 1px; }
+        .toggle-track { width: 32px; height: 18px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 9px; position: relative; }
+        .toggle-track::after { content: ''; position: absolute; width: 14px; height: 14px; background: var(--text-secondary); border-radius: 50%; top: 1px; left: 1px; }
         .toggle-switch input:checked + .toggle-track { background: var(--accent); }
-        .toggle-switch input:checked + .toggle-track::after { left: 17px; background: white; }
-        .calendar-month { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-top: 12px; }
-        .calendar-day-header { text-align: center; font-size: 0.65rem; font-weight: 600; color: var(--text-tertiary); padding: 8px 0; }
-        .calendar-day { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 4px; padding: 6px; min-height: 60px; font-size: 0.7rem; }
+        .toggle-switch input:checked + .toggle-track::after { left: 15px; background: white; }
+        .calendar-month { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; margin-top: 10px; }
+        .calendar-day-header { text-align: center; font-size: 0.55rem; font-weight: 600; color: var(--text-tertiary); padding: 4px 0; }
+        .calendar-day { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 3px; padding: 3px; min-height: 40px; font-size: 0.6rem; }
         .calendar-day.today { border-color: var(--accent); }
         .calendar-day.other-month { opacity: 0.3; }
-        .calendar-day-number { font-weight: 600; margin-bottom: 3px; }
-        .calendar-event { font-size: 0.55rem; padding: 1px 3px; border-radius: 2px; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .calendar-day-number { font-weight: 600; margin-bottom: 1px; }
+        .calendar-event { font-size: 0.48rem; padding: 1px 2px; border-radius: 2px; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .calendar-event.filmavimas { background: var(--blue-soft); color: var(--blue); }
         .calendar-event.terminas { background: var(--orange-soft); color: var(--orange); }
         
-        /* MOBILUS MYGTUKAS */
         .mobile-menu-btn {
             display: none;
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
+            bottom: 16px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
             background: var(--accent);
             color: white;
             border: none;
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             z-index: 999;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
         
+        /* NAUJI STILIAI */
+        .sort-buttons { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 10px; }
+        .sort-btn { font-size: 0.6rem; padding: 4px 8px; }
+        .payment-checks { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+        .payment-check { display: flex; align-items: center; gap: 4px; font-size: 0.7rem; color: var(--text-secondary); cursor: pointer; }
+        .payment-check input { accent-color: var(--accent); width: 14px; height: 14px; }
+        .priority-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 3px; }
+        .priority-high { background: var(--red); }
+        .priority-medium { background: var(--orange); }
+        .priority-low { background: var(--green); }
+        
         @media (max-width: 768px) {
-            .sidebar {
-                display: none;
-                position: fixed;
-                left: 0;
-                top: 0;
-                width: 260px;
-                z-index: 998;
-            }
+            .sidebar { display: none; position: fixed; left: 0; top: 0; width: 250px; z-index: 998; }
             .sidebar.open { display: flex; }
-            .main-content { padding: 12px 10px; }
+            .main-content { padding: 10px 8px; }
             .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
-            .page-title { font-size: 1.3rem; }
+            .page-title { font-size: 1.2rem; }
+            .stats-row { grid-template-columns: 1fr 1fr; gap: 6px; }
+            .stat-mini { padding: 10px; }
+            .stat-mini-value { font-size: 1.1rem; }
+            .card { padding: 10px; }
+            .form-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -167,23 +177,20 @@
 <div class="app">
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-logo">🎬 VideoPro Hub</div>
-        <div style="font-size:0.65rem;color:var(--text-tertiary);margin-bottom:14px;display:flex;align-items:center;gap:4px;">
+        <div style="font-size:0.6rem;color:var(--text-tertiary);margin-bottom:12px;display:flex;align-items:center;gap:3px;">
             <span class="status-indicator" id="dbStatus"></span>
             <span id="dbStatusText">Jungiamasi...</span>
         </div>
         <nav>
-            <div class="nav-section">
-                <div class="nav-section-title">Pagrindinis</div>
+            <div class="nav-section"><div class="nav-section-title">Pagrindinis</div>
                 <button class="nav-item active" data-page="dashboard" onclick="keistiPuslapį('dashboard', this); uždarytiMobilųMeniu();">📊 Panelė</button>
                 <button class="nav-item" data-page="clients" onclick="keistiPuslapį('clients', this); uždarytiMobilųMeniu();">👥 Klientai</button>
                 <button class="nav-item" data-page="calendar" onclick="keistiPuslapį('calendar', this); uždarytiMobilųMeniu();">📅 Kalendorius</button>
             </div>
-            <div class="nav-section">
-                <div class="nav-section-title">Projektai</div>
+            <div class="nav-section"><div class="nav-section-title">Projektai</div>
                 <button class="nav-item" data-page="projects" onclick="keistiPuslapį('projects', this); uždarytiMobilųMeniu();">📁 Visi projektai</button>
             </div>
-            <div class="nav-section">
-                <div class="nav-section-title">Finansai</div>
+            <div class="nav-section"><div class="nav-section-title">Finansai</div>
                 <button class="nav-item" data-page="finance" onclick="keistiPuslapį('finance', this); uždarytiMobilųMeniu();">💰 Finansai</button>
             </div>
         </nav>
@@ -191,7 +198,6 @@
     <main class="main-content" id="mainContent"></main>
 </div>
 
-<!-- MOBILUS MENIU MYGTUKAS -->
 <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="perjungtiMobilųMeniu()">☰</button>
 
 <div class="modal-overlay hidden" id="modalKlientas">
@@ -222,15 +228,22 @@
                 <button type="button" class="btn btn-primary btn-sm" onclick="sukurtiGreitąKlientą()">Sukurti</button>
             </div>
             <div class="form-row"><div class="form-group"><label>Pavadinimas *</label><input type="text" id="projPavadinimas" required></div><div class="form-group"><label>Tipas *</label><select id="projTipas" required><option value="Reklama">Reklama</option><option value="Vestuvės">Vestuvės</option><option value="Podcast">Podcast</option><option value="Motion Design">Motion Design</option><option value="Kita">Kita</option></select></div></div>
-            <div class="form-row"><div class="form-group"><label>Filmavimo data</label><input type="date" id="projFilmData"></div><div class="form-group"><label>Terminas *</label><input type="date" id="projTerminas" required></div></div>
-            <div class="form-row"><div class="form-group"><label>Lokacija</label><input type="text" id="projLokacija"></div><div class="form-group"><label>Įranga</label><input type="text" id="projIranga"></div></div>
+            <!-- PRIORITETAS -->
+            <div class="form-row"><div class="form-group"><label>Prioritetas</label><select id="projPrioritetas"><option value="normalus">Normalus</option><option value="svarbus">Svarbus</option><option value="skubus">Skubus</option></select></div><div class="form-group"><label>Terminas *</label><input type="date" id="projTerminas" required></div></div>
+            <div class="form-row"><div class="form-group"><label>Filmavimo data</label><input type="date" id="projFilmData"></div><div class="form-group"><label>Lokacija</label><input type="text" id="projLokacija"></div></div>
+            <div class="form-group"><label>Įranga</label><input type="text" id="projIranga"></div>
             <div class="form-group"><label>Statusas</label><select id="projStatusas"><option value="Aktyvus">Aktyvus</option><option value="Atlikta">Atlikta</option><option value="Archyvuotas">Archyvuotas</option></select></div>
             <div class="finance-section">
                 <h4>Finansai</h4>
-                <div class="form-group"><label class="toggle-switch"><input type="checkbox" id="projNeapmokamas" onchange="perjungtiFinansųLaukelius()"><span class="toggle-track"></span><span style="font-size:0.75rem;">Neapmokamas / Portfolio</span></label></div>
+                <div class="form-group"><label class="toggle-switch"><input type="checkbox" id="projNeapmokamas" onchange="perjungtiFinansųLaukelius()"><span class="toggle-track"></span><span style="font-size:0.7rem;">Neapmokamas / Portfolio</span></label></div>
                 <div id="finansiniaiLaukeliai">
                     <div class="form-row"><div class="form-group"><label>Biudžetas (€)</label><input type="number" id="projBiudzetas" step="0.01" value="0"></div><div class="form-group"><label>Avansas (€)</label><input type="number" id="projAvansas" step="0.01" value="0"></div></div>
                     <div class="form-row"><div class="form-group"><label>Galutinis (€)</label><input type="number" id="projGalutinis" step="0.01" value="0"></div><div class="form-group"><label>Išlaidos (€)</label><input type="number" id="projIslaidos" step="0.01" value="0"></div></div>
+                    <!-- APMOKĖJIMO CHECKBOXAI -->
+                    <div class="payment-checks">
+                        <label class="payment-check"><input type="checkbox" id="projAvansasGautas"> Avansas gautas</label>
+                        <label class="payment-check"><input type="checkbox" id="projGalutinisGautas"> Galutinis gautas</label>
+                    </div>
                 </div>
             </div>
             <div class="modal-actions">
@@ -251,6 +264,7 @@ var klientai = [];
 var projektai = [];
 var dabartinisPuslapis = 'dashboard';
 var kalendoriausData = new Date();
+var dabartinisRūšiavimas = 'terminas'; // 'terminas', 'prioritetas', 'pinigai'
 
 function atnaujintiDBStatusą(busena, tekstas) {
     var ind = document.getElementById('dbStatus');
@@ -265,7 +279,7 @@ async function užkrautiDuomenis() {
         var kData = await supabase.from('klientai').select('*').order('vardas');
         if (kData.error) throw kData.error;
         klientai = kData.data || [];
-        var pData = await supabase.from('projektai').select('*').order('terminas');
+        var pData = await supabase.from('projektai').select('*');
         if (pData.error) throw pData.error;
         projektai = pData.data || [];
         atnaujintiDBStatusą('online', 'Online');
@@ -300,45 +314,106 @@ function formatuotiDatą(d) {
     return dalys[2] + '.' + dalys[1] + '.' + dalys[0];
 }
 
+// RŪŠIAVIMO FUNKCIJA
+function rūšiuotiProjektus(masyvas) {
+    var arr = masyvas.slice();
+    if (dabartinisRūšiavimas === 'terminas') {
+        arr.sort(function(a, b) {
+            if (!a.terminas && !b.terminas) return 0;
+            if (!a.terminas) return 1;
+            if (!b.terminas) return -1;
+            return new Date(a.terminas) - new Date(b.terminas);
+        });
+    } else if (dabartinisRūšiavimas === 'prioritetas') {
+        var tvarka = { 'skubus': 0, 'svarbus': 1, 'normalus': 2 };
+        arr.sort(function(a, b) {
+            var pa = tvarka[a.prioritetas || 'normalus'] || 2;
+            var pb = tvarka[b.prioritetas || 'normalus'] || 2;
+            return pa - pb;
+        });
+    } else if (dabartinisRūšiavimas === 'pinigai') {
+        arr.sort(function(a, b) {
+            var la = a.neapmokamas ? 0 : ((a.biudzetas||0) - (a.avansas||0) - (a.galutinis||0));
+            var lb = b.neapmokamas ? 0 : ((b.biudzetas||0) - (b.avansas||0) - (b.galutinis||0));
+            return lb - la;
+        });
+    }
+    return arr;
+}
+
 function genDashboard() {
+    var surikiuoti = rūšiuotiProjektus(projektai);
     var aktyvus = projektai.filter(function(p) { return p.statusas !== 'Atlikta' && p.statusas !== 'Archyvuotas'; });
     var h = '<h1 class="page-title">Panelė</h1>';
+    
+    // RŪŠIAVIMO MYGTUKAI
+    h += '<div class="sort-buttons">';
+    h += '<span style="font-size:0.6rem;color:var(--text-tertiary);margin-right:4px;">Rūšiuoti:</span>';
+    h += '<button class="btn btn-sm sort-btn ' + (dabartinisRūšiavimas==='terminas'?'btn-primary':'') + '" onclick="dabartinisRūšiavimas=\'terminas\';atvaizduotiPuslapį();">Pagal terminą</button>';
+    h += '<button class="btn btn-sm sort-btn ' + (dabartinisRūšiavimas==='prioritetas'?'btn-primary':'') + '" onclick="dabartinisRūšiavimas=\'prioritetas\';atvaizduotiPuslapį();">Pagal prioritetą</button>';
+    h += '<button class="btn btn-sm sort-btn ' + (dabartinisRūšiavimas==='pinigai'?'btn-primary':'') + '" onclick="dabartinisRūšiavimas=\'pinigai\';atvaizduotiPuslapį();">Pagal likutį</button>';
+    h += '</div>';
+    
     h += '<div class="stats-row">';
     h += '<div class="stat-mini"><div class="stat-mini-label">Projektai</div><div class="stat-mini-value">' + projektai.length + '</div></div>';
     h += '<div class="stat-mini"><div class="stat-mini-label">Aktyvūs</div><div class="stat-mini-value">' + aktyvus.length + '</div></div>';
     h += '<div class="stat-mini"><div class="stat-mini-label">Klientai</div><div class="stat-mini-value">' + klientai.length + '</div></div>';
     h += '</div>';
-    h += '<button class="btn btn-primary" onclick="atidarytiProjektoModalą()" style="margin-bottom:16px;">+ Naujas projektas</button>';
+    h += '<button class="btn btn-primary btn-sm" onclick="atidarytiProjektoModalą()" style="margin-bottom:10px;">+ Naujas projektas</button>';
     h += '<div class="cards-grid">';
-    for (var i = 0; i < projektai.length; i++) {
-        var p = projektai[i];
+    
+    for (var i = 0; i < surikiuoti.length; i++) {
+        var p = surikiuoti[i];
         var kl = null;
         for (var j = 0; j < klientai.length; j++) { if (klientai[j].id === p.klientas_id) { kl = klientai[j]; break; } }
         var likutis = p.neapmokamas ? 0 : ((p.biudzetas||0) - (p.avansas||0) - (p.galutinis||0));
+        
+        // PRIORITETO TAŠKAS
+        var priorDot = '';
+        if (p.prioritetas === 'skubus') priorDot = '<span class="priority-dot priority-high"></span>';
+        else if (p.prioritetas === 'svarbus') priorDot = '<span class="priority-dot priority-medium"></span>';
+        
         h += '<div class="card" onclick="atidarytiProjektoModalą(\'' + p.id + '\')">';
-        h += '<div class="card-header"><div><div class="card-client-name">' + (kl?kl.vardas:'?') + '</div></div>';
+        h += '<div class="card-header">';
+        h += '<div style="display:flex;align-items:center;gap:4px;">' + priorDot + '<div class="card-client-name">' + (kl?kl.vardas:'?') + '</div></div>';
+        h += '<div style="display:flex;gap:3px;flex-wrap:wrap;">';
+        if (p.prioritetas === 'skubus') h += '<span class="badge badge-red">Skubu</span>';
+        else if (p.prioritetas === 'svarbus') h += '<span class="badge badge-orange">Svarbu</span>';
         h += '<span class="badge badge-purple">' + p.tipas + '</span>';
-        if (p.neapmokamas) h += ' <span class="badge badge-pink">Portfolio</span>';
-        h += '</div>';
+        if (p.neapmokamas) h += '<span class="badge badge-pink">Portfolio</span>';
+        h += '</div></div>';
         h += '<div class="card-project-title">' + p.pavadinimas + '</div>';
         h += '<div class="card-meta">';
-        h += '<div class="card-meta-row"><span class="card-meta-label">🎥 Filmavimas</span><span>' + formatuotiDatą(p.film_data) + '</span></div>';
-        h += '<div class="card-meta-row"><span class="card-meta-label">⏰ Terminas</span><span>' + formatuotiDatą(p.terminas) + '</span></div>';
+        h += '<div class="card-meta-row"><span class="card-meta-label">🎥</span><span>' + formatuotiDatą(p.film_data) + '</span></div>';
+        h += '<div class="card-meta-row"><span class="card-meta-label">⏰</span><span>' + formatuotiDatą(p.terminas) + '</span></div>';
         if (p.lokacija) h += '<div class="card-meta-row"><span class="card-meta-label">📍</span><span>' + p.lokacija + '</span></div>';
+        
+        // APMOKĖJIMO STATUSAS
         if (!p.neapmokamas) {
-            h += '<div class="card-meta-row"><span class="card-meta-label">💰 Likutis</span><span style="color:' + (likutis > 0 ? '#f59e0b' : '#10b981') + ';font-weight:600;">€' + likutis.toFixed(2) + '</span></div>';
+            var avGautas = p.avansas_gautas;
+            var galGautas = p.galutinis_gautas;
+            h += '<div class="card-meta-row" style="margin-top:2px;">';
+            h += '<span class="card-meta-label">💰</span>';
+            h += '<span style="font-size:0.65rem;">';
+            if (avGautas) h += '<span style="color:#10b981;">✓ Avansas</span> ';
+            else h += '<span style="color:#f59e0b;">○ Avansas</span> ';
+            if (galGautas) h += '<span style="color:#10b981;">✓ Galutinis</span>';
+            else h += '<span style="color:#f59e0b;">○ Galutinis</span>';
+            h += '</span></div>';
+            if (likutis > 0) h += '<div class="card-meta-row"><span class="card-meta-label">Likutis</span><span style="color:#f59e0b;font-weight:600;">€' + likutis.toFixed(2) + '</span></div>';
+            else h += '<div class="card-meta-row"><span class="card-meta-label">Apmokėta</span><span style="color:#10b981;font-weight:600;">✓ Pilnai</span></div>';
         }
         h += '</div></div>';
     }
     h += '</div>';
-    if (projektai.length === 0) h += '<p class="text-muted mt-2">Nėra projektų. Spauskite "+ Naujas projektas".</p>';
+    if (projektai.length === 0) h += '<p class="text-muted mt-2">Nėra projektų.</p>';
     return h;
 }
 
 function genKlientai() {
     var h = '<div class="flex-between mb-3"><h1 class="page-title">Klientai</h1><button class="btn btn-primary btn-sm" onclick="atidarytiKlientoModalą()">+ Naujas</button></div>';
     if (klientai.length === 0) return h + '<p class="text-muted">Nėra klientų.</p>';
-    h += '<table class="data-table"><thead><tr><th>Vardas</th><th>Įmonė</th><th>Tel.</th><th>Projektų</th><th></th></tr></thead><tbody>';
+    h += '<table class="data-table"><thead><tr><th>Vardas</th><th>Įmonė</th><th>Tel.</th><th>Proj.</th><th></th></tr></thead><tbody>';
     for (var i = 0; i < klientai.length; i++) {
         var k = klientai[i];
         var kp = projektai.filter(function(p) { return p.klientas_id === k.id; });
@@ -350,15 +425,24 @@ function genKlientai() {
 }
 
 function genProjektai() {
+    var sur = rūšiuotiProjektus(projektai);
     var h = '<div class="flex-between mb-3"><h1 class="page-title">Projektai</h1><button class="btn btn-primary btn-sm" onclick="atidarytiProjektoModalą()">+ Naujas</button></div>';
-    if (projektai.length === 0) return h + '<p class="text-muted">Nėra projektų.</p>';
-    h += '<table class="data-table"><thead><tr><th>Projektas</th><th>Klientas</th><th>Terminas</th><th>Likutis</th><th></th></tr></thead><tbody>';
-    for (var i = 0; i < projektai.length; i++) {
-        var p = projektai[i];
+    
+    h += '<div class="sort-buttons">';
+    h += '<button class="btn btn-sm sort-btn ' + (dabartinisRūšiavimas==='terminas'?'btn-primary':'') + '" onclick="dabartinisRūšiavimas=\'terminas\';atvaizduotiPuslapį();">Pagal terminą</button>';
+    h += '<button class="btn btn-sm sort-btn ' + (dabartinisRūšiavimas==='prioritetas'?'btn-primary':'') + '" onclick="dabartinisRūšiavimas=\'prioritetas\';atvaizduotiPuslapį();">Pagal prioritetą</button>';
+    h += '</div>';
+    
+    if (sur.length === 0) return h + '<p class="text-muted">Nėra projektų.</p>';
+    h += '<table class="data-table"><thead><tr><th>Projektas</th><th>Klientas</th><th>Prior.</th><th>Terminas</th><th>Likutis</th><th></th></tr></thead><tbody>';
+    for (var i = 0; i < sur.length; i++) {
+        var p = sur[i];
         var kl = null;
         for (var j = 0; j < klientai.length; j++) { if (klientai[j].id === p.klientas_id) { kl = klientai[j]; break; } }
         var l = p.neapmokamas ? 0 : ((p.biudzetas||0) - (p.avansas||0) - (p.galutinis||0));
-        h += '<tr><td>' + p.pavadinimas + '</td><td>' + (kl?kl.vardas:'?') + '</td><td>' + formatuotiDatą(p.terminas) + '</td>';
+        var priorEmoji = p.prioritetas === 'skubus' ? '🔴' : (p.prioritetas === 'svarbus' ? '🟠' : '🟢');
+        h += '<tr><td>' + p.pavadinimas + '</td><td>' + (kl?kl.vardas:'?') + '</td><td>' + priorEmoji + '</td>';
+        h += '<td>' + formatuotiDatą(p.terminas) + '</td>';
         h += '<td style="color:' + (l>0?'#f59e0b':'#10b981') + ';font-weight:600;">€' + l.toFixed(2) + '</td>';
         h += '<td><button class="btn btn-sm" onclick="atidarytiProjektoModalą(\'' + p.id + '\')">Red.</button></td></tr>';
     }
@@ -367,133 +451,108 @@ function genProjektai() {
 }
 
 function genFinansai() {
-    var h = '<h1 class="page-title">Finansų suvestinė</h1>';
+    var h = '<h1 class="page-title">Finansai</h1>';
     var mokami = projektai.filter(function(p) { return !p.neapmokamas; });
-    var portfolio = projektai.filter(function(p) { return p.neapmokamas; });
-    var bendrasBiudz = mokami.reduce(function(s, p) { return s + (p.biudzetas||0); }, 0);
-    var bendrasAv = mokami.reduce(function(s, p) { return s + (p.avansas||0); }, 0);
-    var bendrasGal = mokami.reduce(function(s, p) { return s + (p.galutinis||0); }, 0);
-    var bendrasLik = bendrasBiudz - bendrasAv - bendrasGal;
-    h += '<div class="stats-row">';
-    h += '<div class="stat-mini"><div class="stat-mini-label">Biudžetas</div><div class="stat-mini-value">€' + bendrasBiudz.toFixed(0) + '</div></div>';
-    h += '<div class="stat-mini"><div class="stat-mini-label">Avansai</div><div class="stat-mini-value" style="color:#3b82f6">€' + bendrasAv.toFixed(0) + '</div></div>';
-    h += '<div class="stat-mini"><div class="stat-mini-label">Likutis</div><div class="stat-mini-value" style="color:#f59e0b">€' + bendrasLik.toFixed(0) + '</div></div>';
-    h += '<div class="stat-mini"><div class="stat-mini-label">Portfolio</div><div class="stat-mini-value" style="color:#ec4899">' + portfolio.length + '</div></div>';
-    h += '</div>';
-    h += '<h2 style="font-size:1rem;font-weight:600;margin-bottom:10px;">Mokami projektai</h2>';
-    if (mokami.length === 0) h += '<p class="text-muted">Nėra mokamų projektų.</p>';
-    else {
-        h += '<table class="data-table"><thead><tr><th>Projektas</th><th>Biudžetas</th><th>Avansas</th><th>Galutinis</th><th>Likutis</th></tr></thead><tbody>';
-        for (var i = 0; i < mokami.length; i++) {
-            var p = mokami[i];
-            var l = (p.biudzetas||0) - (p.avansas||0) - (p.galutinis||0);
-            h += '<tr><td>' + p.pavadinimas + '</td><td>€' + (p.biudzetas||0) + '</td><td>€' + (p.avansas||0) + '</td><td>€' + (p.galutinis||0) + '</td><td style="color:' + (l>0?'#f59e0b':'#10b981') + ';font-weight:600;">€' + l.toFixed(2) + '</td></tr>';
-        }
-        h += '</tbody></table>';
+    var bB = mokami.reduce(function(s,p){return s+(p.biudzetas||0);},0);
+    var bA = mokami.reduce(function(s,p){return s+(p.avansas||0);},0);
+    var bG = mokami.reduce(function(s,p){return s+(p.galutinis||0);},0);
+    h += '<div class="stats-row"><div class="stat-mini"><div class="stat-mini-label">Biudžetas</div><div class="stat-mini-value">€'+bB.toFixed(0)+'</div></div><div class="stat-mini"><div class="stat-mini-label">Avansai</div><div class="stat-mini-value" style="color:#3b82f6">€'+bA.toFixed(0)+'</div></div><div class="stat-mini"><div class="stat-mini-label">Likutis</div><div class="stat-mini-value" style="color:#f59e0b">€'+(bB-bA-bG).toFixed(0)+'</div></div></div>';
+    if (mokami.length === 0) return h + '<p class="text-muted">Nėra mokamų projektų.</p>';
+    h += '<table class="data-table"><thead><tr><th>Projektas</th><th>Biudž.</th><th>Avans.</th><th>Galut.</th><th>Likutis</th><th>Apmokėta</th></tr></thead><tbody>';
+    for (var i = 0; i < mokami.length; i++) {
+        var p = mokami[i];
+        var l = (p.biudzetas||0)-(p.avansas||0)-(p.galutinis||0);
+        var apmoketa = '';
+        if (p.avansas_gautas) apmoketa += '✓Av ';
+        if (p.galutinis_gautas) apmoketa += '✓Gal';
+        if (!apmoketa) apmoketa = '-';
+        h += '<tr><td>'+p.pavadinimas+'</td><td>€'+p.biudzetas+'</td><td>€'+p.avansas+'</td><td>€'+p.galutinis+'</td><td style="color:'+(l>0?'#f59e0b':'#10b981')+'">€'+l.toFixed(2)+'</td><td>'+apmoketa+'</td></tr>';
     }
-    if (portfolio.length > 0) {
-        h += '<h2 style="font-size:1rem;font-weight:600;margin:20px 0 10px;">Portfolio</h2>';
-        h += '<table class="data-table"><thead><tr><th>Projektas</th><th>Tipas</th><th>Terminas</th><th>Išlaidos</th></tr></thead><tbody>';
-        for (var i = 0; i < portfolio.length; i++) {
-            var p = portfolio[i];
-            h += '<tr><td>' + p.pavadinimas + '</td><td>' + p.tipas + '</td><td>' + formatuotiDatą(p.terminas) + '</td><td>€' + (p.islaidos||0).toFixed(2) + '</td></tr>';
-        }
-        h += '</tbody></table>';
-    }
+    h += '</tbody></table>';
     return h;
 }
 
 function genKalendorius() {
     var m = kalendoriausData.getFullYear();
     var mn = kalendoriausData.getMonth();
-    var pd = new Date(m, mn + 1, 0);
+    var pd = new Date(m, mn+1, 0);
     var men = ['Sausis','Vasaris','Kovas','Balandis','Gegužė','Birželis','Liepa','Rugpjūtis','Rugsėjis','Spalis','Lapkritis','Gruodis'];
-    var h = '<div class="flex-between mb-3"><h1 class="page-title">Kalendorius</h1>';
-    h += '<div style="display:flex;gap:8px;align-items:center;">';
-    h += '<button class="btn btn-sm" onclick="keistiKalendorių(-1)">←</button>';
-    h += '<span style="font-weight:600;">' + men[mn] + ' ' + m + '</span>';
-    h += '<button class="btn btn-sm" onclick="keistiKalendorių(1)">→</button>';
-    h += '<button class="btn btn-sm" onclick="kalendoriausData=new Date();atvaizduotiPuslapį();">Šiandien</button>';
-    h += '</div></div>';
+    var h = '<div class="flex-between mb-3"><h1 class="page-title">Kalendorius</h1><div style="display:flex;gap:4px;"><button class="btn btn-sm" onclick="keistiKalendorių(-1)">←</button><span style="font-weight:600;font-size:0.9rem;">'+men[mn]+' '+m+'</span><button class="btn btn-sm" onclick="keistiKalendorių(1)">→</button><button class="btn btn-sm" onclick="kalendoriausData=new Date();atvaizduotiPuslapį();">Šiandien</button></div></div>';
     h += '<div class="calendar-month">';
     var dienos = ['Pir','Ant','Tre','Ket','Pen','Šeš','Sek'];
-    for (var i = 0; i < dienos.length; i++) h += '<div class="calendar-day-header">' + dienos[i] + '</div>';
-    var pr = new Date(m, mn, 1).getDay();
-    if (pr === 0) pr = 6; else pr = pr - 1;
-    for (var i = 0; i < pr; i++) h += '<div class="calendar-day other-month"></div>';
+    for (var i=0;i<dienos.length;i++) h+='<div class="calendar-day-header">'+dienos[i]+'</div>';
+    var pr = new Date(m,mn,1).getDay(); if(pr===0)pr=6;else pr=pr-1;
+    for(var i=0;i<pr;i++) h+='<div class="calendar-day other-month"></div>';
     var siandien = new Date();
-    for (var d = 1; d <= pd.getDate(); d++) {
-        var dt = new Date(m, mn, d);
-        var mm = String(dt.getMonth() + 1); if (mm.length === 1) mm = '0' + mm;
-        var dd = String(dt.getDate()); if (dd.length === 1) dd = '0' + dd;
-        var ds = dt.getFullYear() + '-' + mm + '-' + dd;
-        var film = projektai.filter(function(p) { return p.film_data === ds; });
-        var term = projektai.filter(function(p) { return p.terminas === ds; });
-        var iv = '';
-        for (var f = 0; f < film.length; f++) iv += '<div class="calendar-event filmavimas">🎥 ' + film[f].pavadinimas.substring(0, 12) + '</div>';
-        for (var t = 0; t < term.length; t++) iv += '<div class="calendar-event terminas">⏰ ' + term[t].pavadinimas.substring(0, 12) + '</div>';
-        var todayClass = (dt.toDateString() === siandien.toDateString()) ? ' today' : '';
-        h += '<div class="calendar-day' + todayClass + '"><div class="calendar-day-number">' + d + '</div>' + iv + '</div>';
+    for(var d=1;d<=pd.getDate();d++){
+        var dt=new Date(m,mn,d);
+        var mm=String(dt.getMonth()+1);if(mm.length===1)mm='0'+mm;
+        var dd=String(dt.getDate());if(dd.length===1)dd='0'+dd;
+        var ds=dt.getFullYear()+'-'+mm+'-'+dd;
+        var film=projektai.filter(function(p){return p.film_data===ds;});
+        var term=projektai.filter(function(p){return p.terminas===ds;});
+        var iv='';
+        for(var f=0;f<film.length;f++)iv+='<div class="calendar-event filmavimas">🎥'+film[f].pavadinimas.substring(0,10)+'</div>';
+        for(var t=0;t<term.length;t++)iv+='<div class="calendar-event terminas">⏰'+term[t].pavadinimas.substring(0,10)+'</div>';
+        h+='<div class="calendar-day'+(dt.toDateString()===siandien.toDateString()?' today':'')+'"><div class="calendar-day-number">'+d+'</div>'+iv+'</div>';
     }
-    h += '</div>';
-    h += '<div style="margin-top:12px;display:flex;gap:16px;font-size:0.75rem;">';
-    h += '<span><span class="calendar-event filmavimas" style="display:inline-block;padding:2px 6px;">🎥</span> Filmavimai</span>';
-    h += '<span><span class="calendar-event terminas" style="display:inline-block;padding:2px 6px;">⏰</span> Terminai</span>';
-    h += '</div>';
+    h+='</div>';
     return h;
 }
-
-function keistiKalendorių(d) { kalendoriausData.setMonth(kalendoriausData.getMonth() + d); atvaizduotiPuslapį(); }
-
-// MOBILAUS MENIU FUNKCIJOS
-function perjungtiMobilųMeniu() {
-    var sidebar = document.getElementById('sidebar');
-    if (sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-    } else {
-        sidebar.classList.add('open');
-    }
-}
-function uždarytiMobilųMeniu() {
-    document.getElementById('sidebar').classList.remove('open');
-}
+function keistiKalendorių(d){kalendoriausData.setMonth(kalendoriausData.getMonth()+d);atvaizduotiPuslapį();}
+function perjungtiMobilųMeniu(){var s=document.getElementById('sidebar');if(s.classList.contains('open'))s.classList.remove('open');else s.classList.add('open');}
+function uždarytiMobilųMeniu(){document.getElementById('sidebar').classList.remove('open');}
 
 // CRUD
-async function išsaugotiKlientą(e) {
+async function išsaugotiKlientą(e){
     e.preventDefault();
-    var id = document.getElementById('klientoId').value;
-    var duom = { vardas: document.getElementById('klVardas').value, imone: document.getElementById('klImone').value, tel: document.getElementById('klTel').value, email: document.getElementById('klEmail').value };
-    if (id) { await supabase.from('klientai').update(duom).eq('id', id); }
-    else { await supabase.from('klientai').insert(duom); }
-    await užkrautiDuomenis();
-    uždarytiModalą('modalKlientas');
-    return false;
+    var id=document.getElementById('klientoId').value;
+    var duom={vardas:document.getElementById('klVardas').value,imone:document.getElementById('klImone').value,tel:document.getElementById('klTel').value,email:document.getElementById('klEmail').value};
+    if(id){await supabase.from('klientai').update(duom).eq('id',id);}
+    else{await supabase.from('klientai').insert(duom);}
+    await užkrautiDuomenis();uždarytiModalą('modalKlientas');return false;
 }
-async function trintiKlientąPagalId(id) { if (!confirm('Ištrinti?')) return; await supabase.from('klientai').delete().eq('id', id); await užkrautiDuomenis(); }
-async function išsaugotiProjektą(e) {
+async function trintiKlientąPagalId(id){if(!confirm('Ištrinti?'))return;await supabase.from('klientai').delete().eq('id',id);await užkrautiDuomenis();}
+async function išsaugotiProjektą(e){
     e.preventDefault();
-    var klId = document.getElementById('projKlientas').value;
-    if (!klId) { alert('Pasirinkite klientą!'); return false; }
-    var id = document.getElementById('projId').value;
-    var neapm = document.getElementById('projNeapmokamas').checked;
-    var duom = { klientas_id: klId, pavadinimas: document.getElementById('projPavadinimas').value, tipas: document.getElementById('projTipas').value, film_data: document.getElementById('projFilmData').value || null, terminas: document.getElementById('projTerminas').value, lokacija: document.getElementById('projLokacija').value, iranga: document.getElementById('projIranga').value, statusas: document.getElementById('projStatusas').value, neapmokamas: neapm, biudzetas: neapm ? 0 : (parseFloat(document.getElementById('projBiudzetas').value) || 0), avansas: neapm ? 0 : (parseFloat(document.getElementById('projAvansas').value) || 0), galutinis: neapm ? 0 : (parseFloat(document.getElementById('projGalutinis').value) || 0), islaidos: parseFloat(document.getElementById('projIslaidos').value) || 0, workflow_progress: 0 };
-    if (id) { await supabase.from('projektai').update(duom).eq('id', id); }
-    else { await supabase.from('projektai').insert(duom); }
-    await užkrautiDuomenis();
-    uždarytiModalą('modalProjektas');
-    return false;
+    var klId=document.getElementById('projKlientas').value;
+    if(!klId){alert('Pasirinkite klientą!');return false;}
+    var id=document.getElementById('projId').value;
+    var neapm=document.getElementById('projNeapmokamas').checked;
+    var duom={
+        klientas_id:klId,
+        pavadinimas:document.getElementById('projPavadinimas').value,
+        tipas:document.getElementById('projTipas').value,
+        prioritetas:document.getElementById('projPrioritetas').value,
+        film_data:document.getElementById('projFilmData').value||null,
+        terminas:document.getElementById('projTerminas').value,
+        lokacija:document.getElementById('projLokacija').value,
+        iranga:document.getElementById('projIranga').value,
+        statusas:document.getElementById('projStatusas').value,
+        neapmokamas:neapm,
+        biudzetas:neapm?0:(parseFloat(document.getElementById('projBiudzetas').value)||0),
+        avansas:neapm?0:(parseFloat(document.getElementById('projAvansas').value)||0),
+        galutinis:neapm?0:(parseFloat(document.getElementById('projGalutinis').value)||0),
+        islaidos:parseFloat(document.getElementById('projIslaidos').value)||0,
+        avansas_gautas:document.getElementById('projAvansasGautas').checked,
+        galutinis_gautas:document.getElementById('projGalutinisGautas').checked,
+        workflow_progress:0
+    };
+    if(id){await supabase.from('projektai').update(duom).eq('id',id);}
+    else{await supabase.from('projektai').insert(duom);}
+    await užkrautiDuomenis();uždarytiModalą('modalProjektas');return false;
 }
-async function trintiProjektąPagalId(id) { if (!confirm('Ištrinti?')) return; await supabase.from('projektai').delete().eq('id', id); await užkrautiDuomenis(); }
-async function sukurtiGreitąKlientą() { var v = document.getElementById('greitasKlVardas').value.trim(); if (!v) { alert('Įveskite vardą!'); return; } await supabase.from('klientai').insert({ vardas: v }); await užkrautiDuomenis(); paslėptiGreitąKlientoPridėjimą(); }
-function užpildytiKlientųSąrašą() { var sel = document.getElementById('projKlientas'); if (!sel) return; sel.innerHTML = '<option value="">-- Pasirinkite --</option>'; for (var i = 0; i < klientai.length; i++) { sel.innerHTML += '<option value="' + klientai[i].id + '">' + klientai[i].vardas + '</option>'; } }
-function parodytiGreitąKlientoPridėjimą() { document.getElementById('greitasKlientoPridėjimas').classList.remove('hidden'); document.getElementById('btnPridėtiKlientą').style.display='none'; }
-function paslėptiGreitąKlientoPridėjimą() { document.getElementById('greitasKlientoPridėjimas').classList.add('hidden'); document.getElementById('btnPridėtiKlientą').style.display=''; }
-function perjungtiFinansųLaukelius() { var n=document.getElementById('projNeapmokamas').checked; var l=document.getElementById('finansiniaiLaukeliai'); if(l){l.style.opacity=n?'0.4':'1';l.style.pointerEvents=n?'none':'auto';} }
-function atidarytiKlientoModalą(id) {
+async function trintiProjektąPagalId(id){if(!confirm('Ištrinti?'))return;await supabase.from('projektai').delete().eq('id',id);await užkrautiDuomenis();}
+async function sukurtiGreitąKlientą(){var v=document.getElementById('greitasKlVardas').value.trim();if(!v){alert('Įveskite vardą!');return;}await supabase.from('klientai').insert({vardas:v});await užkrautiDuomenis();paslėptiGreitąKlientoPridėjimą();}
+function užpildytiKlientųSąrašą(){var sel=document.getElementById('projKlientas');if(!sel)return;sel.innerHTML='<option value="">-- Pasirinkite --</option>';for(var i=0;i<klientai.length;i++){sel.innerHTML+='<option value="'+klientai[i].id+'">'+klientai[i].vardas+'</option>';}}
+function parodytiGreitąKlientoPridėjimą(){document.getElementById('greitasKlientoPridėjimas').classList.remove('hidden');document.getElementById('btnPridėtiKlientą').style.display='none';}
+function paslėptiGreitąKlientoPridėjimą(){document.getElementById('greitasKlientoPridėjimas').classList.add('hidden');document.getElementById('btnPridėtiKlientą').style.display='';}
+function perjungtiFinansųLaukelius(){var n=document.getElementById('projNeapmokamas').checked;var l=document.getElementById('finansiniaiLaukeliai');if(l){l.style.opacity=n?'0.4':'1';l.style.pointerEvents=n?'none':'auto';}}
+function atidarytiKlientoModalą(id){
     document.getElementById('modalKlientasTitle').textContent=id?'Redaguoti klientą':'Naujas klientas';
     document.getElementById('klientoId').value=id||'';
     if(id){for(var i=0;i<klientai.length;i++){if(klientai[i].id==id){var k=klientai[i];document.getElementById('klVardas').value=k.vardas;document.getElementById('klImone').value=k.imone||'';document.getElementById('klTel').value=k.tel||'';document.getElementById('klEmail').value=k.email||'';break;}}}
-    else {document.getElementById('formaKlientas').reset();}
+    else{document.getElementById('formaKlientas').reset();}
     document.getElementById('modalKlientas').classList.remove('hidden');
 }
 function trintiKlientą(){var id=document.getElementById('klientoId').value;if(id){trintiKlientąPagalId(id);uždarytiModalą('modalKlientas');}}
@@ -501,8 +560,9 @@ function atidarytiProjektoModalą(id){
     document.getElementById('modalProjektasTitle').textContent=id?'Redaguoti projektą':'Naujas projektas';
     document.getElementById('projId').value=id||'';
     užpildytiKlientųSąrašą();
-    if(id){for(var i=0;i<projektai.length;i++){if(projektai[i].id==id){var p=projektai[i];document.getElementById('projKlientas').value=p.klientas_id||'';document.getElementById('projPavadinimas').value=p.pavadinimas;document.getElementById('projTipas').value=p.tipas;document.getElementById('projFilmData').value=p.film_data||'';document.getElementById('projTerminas').value=p.terminas;document.getElementById('projLokacija').value=p.lokacija||'';document.getElementById('projIranga').value=p.iranga||'';document.getElementById('projStatusas').value=p.statusas||'Aktyvus';document.getElementById('projNeapmokamas').checked=p.neapmokamas||false;document.getElementById('projBiudzetas').value=p.biudzetas||0;document.getElementById('projAvansas').value=p.avansas||0;document.getElementById('projGalutinis').value=p.galutinis||0;document.getElementById('projIslaidos').value=p.islaidos||0;break;}}}
-    else {document.getElementById('formaProjektas').reset();document.getElementById('projBiudzetas').value='0';document.getElementById('projAvansas').value='0';document.getElementById('projGalutinis').value='0';document.getElementById('projIslaidos').value='0';}
+    if(id){for(var i=0;i<projektai.length;i++){if(projektai[i].id==id){var p=projektai[i];document.getElementById('projKlientas').value=p.klientas_id||'';document.getElementById('projPavadinimas').value=p.pavadinimas;document.getElementById('projTipas').value=p.tipas;document.getElementById('projPrioritetas').value=p.prioritetas||'normalus';document.getElementById('projFilmData').value=p.film_data||'';document.getElementById('projTerminas').value=p.terminas;document.getElementById('projLokacija').value=p.lokacija||'';document.getElementById('projIranga').value=p.iranga||'';document.getElementById('projStatusas').value=p.statusas||'Aktyvus';document.getElementById('projNeapmokamas').checked=p.neapmokamas||false;document.getElementById('projBiudzetas').value=p.biudzetas||0;document.getElementById('projAvansas').value=p.avansas||0;document.getElementById('projGalutinis').value=p.galutinis||0;document.getElementById('projIslaidos').value=p.islaidos||0;document.getElementById('projAvansasGautas').checked=p.avansas_gautas||false;document.getElementById('projGalutinisGautas').checked=p.galutinis_gautas||false;break;}}}
+    else{document.getElementById('formaProjektas').reset();document.getElementById('projBiudzetas').value='0';document.getElementById('projAvansas').value='0';document.getElementById('projGalutinis').value='0';document.getElementById('projIslaidos').value='0';document.getElementById('projAvansasGautas').checked=false;document.getElementById('projGalutinisGautas').checked=false;}
+    perjungtiFinansųLaukelius();
     document.getElementById('modalProjektas').classList.remove('hidden');
 }
 function trintiProjektą(){var id=document.getElementById('projId').value;if(id){trintiProjektąPagalId(id);uždarytiModalą('modalProjektas');}}
